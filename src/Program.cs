@@ -156,7 +156,7 @@
           case "help":
             break;
           default:
-            Console.WriteLine("[RUST-CE] - No valid type provided, type '--raid help' for more info\n");
+            Console.WriteLine("[RUST-CE] - No valid type provided, type '--raid help .' for more info\n");
             break;
         }
 
@@ -187,7 +187,7 @@
           case "help":
             break;
           default:
-            Console.WriteLine("[RUST-CE] - No valid option provided, type '--event help' for more info\n");
+            Console.WriteLine("[RUST-CE] - No valid option provided, type '--event help .' for more info\n");
             break;
         }
 
@@ -217,7 +217,7 @@
           Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
           break;
         default:
-          Console.WriteLine("[RUST-CE] - No valid function provided, type '--help' for more info\n");
+          Console.WriteLine("[RUST-CE] - No valid function provided, type 'help .' for more info\n");
           break;
       }
     }
