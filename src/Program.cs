@@ -95,6 +95,12 @@
           case "attack_heli":
             Console.WriteLine("[RUST-CE] - Patrol Helicopter:\n\n\t200+ Assault Rifle Bullets\n");
             break;
+          case "chinook":
+            Console.WriteLine("[RUST-CE] - Chinook Crate:\n\n\t15 Minutes to Unlock (Hack)\n\tHeavy Scientists: 6 (Small Oil Rig) or 10 (Large Oil Rig)\n");
+            break;
+          case "ch47":
+            Console.WriteLine("[RUST-CE] - Chinook Crate:\n\n\t15 Minutes to Unlock (Hack)\n\tHeavy Scientists: 6 (Small Oil Rig) or 10 (Large Oil Rig)\n");
+            break;
           case "help":
             break;
           default:
@@ -184,6 +190,15 @@
             }
 
             break;
+          case "crate":
+            events.EventEntities(option);
+
+            if (option == "help")
+            {
+              Console.WriteLine("[RUST-CE] - Crate Help:\n\nVALID OPTIONS:\n\tchinook (or ch47)\n");
+            }
+
+            break;
           case "help":
             break;
           default:
@@ -214,7 +229,7 @@
           type.Events(args[1], args[2]);
           break;
         case "help":
-          Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
+          Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\tcrate 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tcreate: chinook or (ch47)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
           break;
         default:
           Console.WriteLine("[RUST-CE] - No valid function provided, type 'help .' for more info\n");
