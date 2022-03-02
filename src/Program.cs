@@ -221,7 +221,7 @@
       // throw help message if the user tries to run the program without any arguments
       if (args.Length <= 0)
       {
-        Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\tcrate 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tcrate:\n\t\tchinook or (ch47)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
+        Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\tcrate 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tcrate:\n\t\tchinook (or ch47)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
         
         return;
       }
@@ -237,7 +237,7 @@
           type.Events(args[1], args[2]);
           break;
         case "help":
-          Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\tcrate 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tcrate:\n\t\tchinook or (ch47)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
+          Console.WriteLine("[RUST-CE] - All Commands:\n\nVALID FUNCTION:\n\t--raid 'type'\n\t--event 'type'\n\nVALID TYPES:\n\tdoor 'option'\n\tstructures 'option'\n\tplaceables 'option'\n\tentities 'option'\n\tcrate 'option'\n\nVALID OPTIONS:\n\tdoors:\n\t\twood, stone, metal (or metal_sheet), garage, armored\n\tstructure (or structures):\n\t\twood, stone, metal, armored\n\tentities:\n\t\tbradley (or apc), heli (or attack_heli)\n\tcrate:\n\t\tchinook (or ch47)\n\tplaceables:\n\t\ttc (or tool_cupboard)\n");
           break;
         default:
           Console.WriteLine("[RUST-CE] - No valid function provided, type 'help .' for more info\n");
