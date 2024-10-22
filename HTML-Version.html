@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('imgs/EXAMPLE.png'); /* Use your background image */
+            background-image: url('imgs/YOUR-BG-IMAGE.png'); /* Use your background image */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -67,29 +67,56 @@
             height: 49px;
             width: 219px;
         }
+
+        /* Button hover effect */
+        button {
+            background-color: #b7410e; /* Base color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        button:hover {
+            background-color: #ff8c00; /* Change to a lighter shade on hover */
+        }
+
+        /* Bigger dropdown styles */
+        select {
+            padding: 10px; /* Larger padding */
+            font-size: 18px; /* Larger font size */
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
-<body>
+<body onload="showOptions()">
     <div class="container">
         <h1>Rust CE Raid Calculator</h1>
         <form method="post">
             <label for="type" style="color: #b7410e;">Select Type:</label>
-            <select name="type" id="type" required>
+            <select name="type" id="type" required onchange="showOptions()">
                 <option value="door">Door</option>
                 <option value="structure">Structure</option>
                 <option value="placeable">Placeable</option>
                 <option value="entity">Entity</option>
             </select>
 
-            <label for="option" style="color: #b7410e;">Select Option:</label>
-            <input type="text" name="option" id="option" required />
+            <div id="options-container">
+                <label for="option" style="color: #b7410e;">Select Option:</label>
+                <select name="option" id="option" required>
+                    <!-- Default option will be filled based on type selection -->
+                </select>
+            </div>
 
-            <button type="submit" style="background-color: #b7410e; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Calculate</button>
+            <button type="submit">Calculate</button>
         </form>
 
-        <h2>Amount of Boom Required:</h2>
+        <h2>Result:</h2>
         <div class="result">
         <?php
+        // Check if the form was submitted
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $type = $_POST['type'];
             $option = strtolower(trim($_POST['option'])); // Normalize the option
@@ -114,6 +141,7 @@
             }
         }
 
+        // Function to calculate door options
         function calculateDoors($option) {
             switch ($option) {
                 case 'wood':
@@ -126,10 +154,11 @@
                 case 'armored':
                     return "Armored Door:\n4 Rockets\n34 HV Rockets\n2 C4s\n12 Satchels\n200 Explosive Ammo;\n56 Bean Cans\n160 F1 Grenades\n";
                 default:
-                    return "Invalid door option! Please Enter one of the follwoing options: \nWood, Sheet <b>OR</b> Metal, Garage, Armored\n";
+                    return "Invalid door option! Please enter one of the following options: \nWood, Sheet <b>OR</> Metal, Garage, Armored\n";
             }
         }
 
+        // Function to calculate structure options
         function calculateStructures($option) {
             switch ($option) {
                 case 'wood':
@@ -141,22 +170,26 @@
                 case 'armored':
                     return "Armored Structure:\n15 Rockets\n134 HV Rockets\n8 C4s\n46 Satchels\n799 Explosive Ammo\n223 Bean Cans\n1986 F1 Grenades\n";
                 default:
-                    return "Invalid structure option! Please Enter one of the follwoing options: \nWood, Stone, Metal, Armored \n";
+                    return "Invalid structure option! Please enter one of the following options: \nWood, Stone, Metal, Armored\n";
             }
         }
 
+        // Function to calculate placeable options
         function calculatePlaceables($option) {
             switch ($option) {
                 case 'tc':
                 case 'tool_cupboard':
                     return "Tool Cupboard:\n1 Rocket\n2 HV Rockets\n1 Incendiary Rocket\n1 C4\n1 Satchel\n10 Explosive Ammo\n4 Bean Cans\n20 Handmade Shells\n43 F1 Grenades\n";
-                case 'tool_cupboard':
-                    return "Tool Cupboard:\n1 Rocket\n2 HV Rockets\n1 Incendiary Rocket\n1 C4\n1 Satchel\n10 Explosive Ammo\n4 Bean Cans\n20 Handmade Shells\n43 F1 Grenades\n";
+                case 'vm':
+                case 'vendy':
+                case 'vending_machine':
+                    return "Vending Machine:\n2 Timed Explosives and 60 Explosive Ammo\nOR\nNon Tier 3: 15 Satchels\n";
                 default:
-                    return "Invalid placeable option! Please Enter one of the follwoing options: \nTool Cupboard, Vending Machine\n";
+                    return "Invalid placeable option! Please enter one of the following options:\nTool Cupboard, Vending Machine\n";
             }
         }
 
+        // Function to calculate entity options
         function calculateEntities($option) {
             switch ($option) {
                 case 'bradley':
@@ -176,11 +209,50 @@
         </div>
     </div>
 
-    <!-- Floating Buy Me A Coffee Button -->
-    <div class="coffee-button">
-        <a href="https://www.buymeacoffee.com/YOUR-BUY-ME-A-COFFEE-LINK">
-            <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&amp;emoji=&amp;slug=ACRxkGayhv&amp;button_colour=b7410e&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" />
-        </a>
-    </div>
+  <!-- Floating Buy Me A Coffee Button -->
+<div class="coffee-button">
+    <a href="https://www.buymeacoffee.com/YOUR-BUY-ME-A-COFFEE-URL">
+        <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&amp;emoji=&amp;slug=ACRxkGayhv&amp;button_colour=b7410e&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" />
+    </a>
+</div>
+
+<!-- CSS for Yellow Glow -->
+<style>
+    /* Target the coffee button image and apply the yellow glow */
+    .coffee-button img {
+        box-shadow: 0 0 15px 3px rgba(255, 221, 0, 0.7); /* Yellow glow */
+        border-radius: 10px; /* Rounded edges for the button */
+    height: 49px;
+    width: 219px;
+    }
+</style>
+
+    <script>
+        // JavaScript function to show options based on selected type
+        function showOptions() {
+            const type = document.getElementById('type').value;
+            const optionsContainer = document.getElementById('options-container');
+            const optionSelect = document.getElementById('option');
+
+            // Clear previous options
+            optionSelect.innerHTML = '';
+
+            // Define options for each type
+            const options = {
+                door: ['Wood', 'Sheet Metal', 'Garage Door', 'Armored Door'],
+                structure: ['Wood', 'Stone', 'Metal', 'Armored'],
+                placeable: ['Tool Cupboard', 'Vending Machine'],
+                entity: ['Bradley APC', 'Patrol Helicopter', 'Chinook'],
+            };
+
+            // Populate options based on selected type
+            options[type].forEach(option => {
+                const newOption = document.createElement('option');
+                newOption.value = option.toLowerCase().replace(/ /g, "_"); // Use underscores for consistent naming
+                newOption.textContent = option; // Display the human-readable option
+                optionSelect.appendChild(newOption);
+            });
+        }
+    </script>
 </body>
 </html>
