@@ -1,6 +1,8 @@
 # Rust CE: Calculator
 Simple raid/event helper for Rust Console Edition that I've made in 40 minutes for a C# assignment.
+Forked from: https://github.com/VereTech-Gaming/rust_ce_calc
 
+I (Atomic0utlaw-_-) created a PHP Webpage Page for this tool.
 ***
 
 ### Example:
